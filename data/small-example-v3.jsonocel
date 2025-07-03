@@ -1,0 +1,153 @@
+{
+  "ocel:global-log": {
+    "ocel:version": "2.0",
+    "ocel:ordering": "timestamp",
+    "ocel:object-types": ["orders", "items"],
+    "ocel:attribute-names": ["price"]
+  },
+  "ocel:events": {
+    "1.0": {
+      "ocel:activity": "request",
+      "ocel:timestamp": "2023-01-01T10:00:01Z",
+      "ocel:omap": ["o1", "i1", "i2"],
+      "ocel:vmap": { "price": 0 }
+    },
+    "2.0": {
+      "ocel:activity": "charge",
+      "ocel:timestamp": "2023-01-01T10:00:02Z",
+      "ocel:omap": ["o1"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "3.0": {
+      "ocel:activity": "normal pack 1",
+      "ocel:timestamp": "2023-01-01T10:00:03Z",
+      "ocel:omap": ["o1", "i1", "i2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "4.0": {
+      "ocel:activity": "normal pack 2",
+      "ocel:timestamp": "2023-01-01T10:00:04Z",
+      "ocel:omap": ["o1", "i1", "i2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "5.0": {
+      "ocel:activity": "confirm pack",
+      "ocel:timestamp": "2023-01-01T10:00:05Z",
+      "ocel:omap": ["o1", "i1", "i2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "6.0": {
+      "ocel:activity": "add label 1",
+      "ocel:timestamp": "2023-01-01T10:00:06Z",
+      "ocel:omap": ["o1"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "7.0": {
+      "ocel:activity": "add label 2",
+      "ocel:timestamp": "2023-01-01T10:00:07Z",
+      "ocel:omap": ["o1"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "8.0": {
+      "ocel:activity": "send out",
+      "ocel:timestamp": "2023-01-01T10:00:08Z",
+      "ocel:omap": ["o1"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "9.0": {
+      "ocel:activity": "complete",
+      "ocel:timestamp": "2023-01-01T10:00:09Z",
+      "ocel:omap": ["o1", "i1", "i2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "10.0": {
+      "ocel:activity": "request",
+      "ocel:timestamp": "2023-01-01T10:00:10Z",
+      "ocel:omap": ["o2", "i3", "i4"],
+      "ocel:vmap": { "price": 0 }
+    },
+    "11.0": {
+      "ocel:activity": "charge",
+      "ocel:timestamp": "2023-01-01T10:00:11Z",
+      "ocel:omap": ["o2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "12.0": {
+      "ocel:activity": "fragile pack 1",
+      "ocel:timestamp": "2023-01-01T10:00:12Z",
+      "ocel:omap": ["o2", "i3", "i4"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "13.0": {
+      "ocel:activity": "fragile pack 2",
+      "ocel:timestamp": "2023-01-01T10:00:13Z",
+      "ocel:omap": ["o2", "i3", "i4"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "14.0": {
+      "ocel:activity": "confirm pack",
+      "ocel:timestamp": "2023-01-01T10:00:14Z",
+      "ocel:omap": ["o2", "i3", "i4"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "15.0": {
+      "ocel:activity": "add label 2",
+      "ocel:timestamp": "2023-01-01T10:00:15Z",
+      "ocel:omap": ["o2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "16.0": {
+      "ocel:activity": "add label 1",
+      "ocel:timestamp": "2023-01-01T10:00:16Z",
+      "ocel:omap": ["o2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "17.0": {
+      "ocel:activity": "send out",
+      "ocel:timestamp": "2023-01-01T10:00:17Z",
+      "ocel:omap": ["o2"],
+      "ocel:vmap": { "price": 100 }
+    },
+    "18.0": {
+      "ocel:activity": "complete",
+      "ocel:timestamp": "2023-01-01T10:00:18Z",
+      "ocel:omap": ["o2", "i3", "i4"],
+      "ocel:vmap": { "price": 100 }
+    }
+  },
+  "ocel:objects": {
+    "o1": {
+      "ocel:type": "orders"
+    },
+    "o2": {
+      "ocel:type": "orders"
+    },
+    "o3": {
+      "ocel:type": "orders"
+    },
+    "o4": {
+      "ocel:type": "orders"
+    },
+    "o5": {
+      "ocel:type": "orders"
+    },
+    "i1": {
+      "ocel:type": "items"
+    },
+    "i2": {
+      "ocel:type": "items"
+    },
+    "i3": {
+      "ocel:type": "items"
+    },
+    "i4": {
+      "ocel:type": "items"
+    },
+    "i5": {
+      "ocel:type": "items"
+    },
+    "i6": {
+      "ocel:type": "items"
+    }
+  }
+}
