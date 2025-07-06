@@ -2,6 +2,7 @@ use crate::{start_cuts::is_reachable, types::{ProcessForest, TreeNode}};
 use itertools::Itertools;
 use log::info;
 use std::collections::{HashMap, HashSet, VecDeque};
+use crate::start_cuts::{is_exclusive_choice_cut_possible, is_sequence_cut_possible};
 
 pub fn find_cuts_start(
     dfg: &HashMap<(String, String), usize>,
@@ -31,7 +32,7 @@ pub fn find_cuts_start(
     // ----- perform cuts--------
 
     let (excl_set1, excl_set2) = find_exclusive_choice_cut(&filtered_dfg, &all_activities);
-    if (!excl_set1.is_empty() && !excl_set2.is_empty()) {
+    if (!excl_set1.is_empty() && !excl_set2.is_empty() && is_exclusive_choice_cut_possible(&filtered_dfg, &excl_set1, &excl_set2)) {
         info!("Exclusive cut found: {:?} (X) {:?}", excl_set1, excl_set2);
         let mut node = TreeNode {
             label: "excl".to_string(),
@@ -54,7 +55,7 @@ pub fn find_cuts_start(
     }
 
     let (set1, set2) = find_sequence_cut(&filtered_dfg, &all_activities);
-    if (!set1.is_empty() && !set2.is_empty()) {
+    if (!set1.is_empty() && !set2.is_empty() && is_sequence_cut_possible(&filtered_dfg, &set1, &set2)) {
         info!("Sequence cut found: {:?} (->) {:?}", set1, set2);
         let mut node = TreeNode {
             label: "seq".to_string(),

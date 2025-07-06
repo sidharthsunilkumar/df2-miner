@@ -27,6 +27,7 @@ fn main() {
     ]).unwrap();
 
     let file_path = "data/running-example.jsonocel";
+    // let file_path = "data/small-example-v3.jsonocel";
 
     let file_content = stdfs::read_to_string(&file_path).unwrap();
     let ocel: OcelJson = serde_json::from_str(&file_content).unwrap();
