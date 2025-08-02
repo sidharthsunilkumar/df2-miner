@@ -2,33 +2,69 @@ use serde::Deserialize;
 use std::collections::{HashMap, HashSet};
 use serde::Serialize;
 
+// OCEL 2.0 structures
 #[derive(Debug, Deserialize)]
 pub struct OcelJson {
-    #[serde(rename = "ocel:global-log")]
-    pub global_log: serde_json::Value,
-    #[serde(rename = "ocel:events")]
-    pub events: HashMap<String, Event>,
-    #[serde(rename = "ocel:objects")]
-    pub objects: HashMap<String, Object>,
+    #[serde(rename = "objectTypes")]
+    pub object_types: Vec<ObjectType>,
+    #[serde(rename = "eventTypes")]
+    pub event_types: Vec<EventType>,
+    pub events: Vec<Event>,
+    pub objects: Vec<Object>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ObjectType {
+    pub name: String,
+    pub attributes: Vec<AttributeDefinition>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct EventType {
+    pub name: String,
+    pub attributes: Vec<AttributeDefinition>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct AttributeDefinition {
+    pub name: String,
+    #[serde(rename = "type")]
+    pub attr_type: String,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Event {
-    #[serde(rename = "ocel:activity")]
-    pub activity: String,
-    #[serde(rename = "ocel:timestamp")]
-    pub timestamp: String,
-    #[serde(rename = "ocel:omap")]
-    pub omap: Vec<String>,
+    pub id: String,
+    #[serde(rename = "type")]
+    pub activity: String,  
+    pub time: String,     
+    pub attributes: Option<Vec<Attribute>>,
+    pub relationships: Vec<Relationship>,
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Object {
-    #[serde(rename = "ocel:type")]
+    pub id: String,
+    #[serde(rename = "type")]
     pub object_type: String,
+    pub attributes: Option<Vec<Attribute>>,
 }
 
-// Moved TreeNode and ProcessForest definitions
+#[derive(Debug, Deserialize)]
+pub struct Attribute {
+    pub name: String,
+    pub value: serde_json::Value,  // it handle both strings and numbers
+    pub time: Option<String>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Relationship {
+    #[serde(rename = "objectId")]
+    pub object_id: String,
+    pub qualifier: String,
+}
+
+
 #[derive(Debug)]
 pub struct TreeNode {
     pub label: String,

@@ -2,10 +2,11 @@
 
 ## Important info
 
-1. This uses jsonocel 1.0 object centric event logs (https://www.ocel-standard.org/1.0/).
+1. This uses json 2.0 object centric event logs (https://www.ocel-standard.org/event-logs/overview/).
 2. After execution, the process tree is printed in the console. Everything else is logged in process.log file.
 3. starts_cuts file implements the exact mathematical formula of Inductive miner, so it can be very slow if there are a large number of activities.
 4. starts_cuts_opti file implements optimised algorithms for finding cuts in Inductive miner, so it is very fast.
+5. 2 example datasets can be found in the data folder.
 
 ## Optimised finding-cut algorithms 
 
